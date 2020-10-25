@@ -1,4 +1,6 @@
+echo "Welcome to the remote script generator!!";
 echo "#!/bin/bash" >> backup.sh;
+echo ". /home/`whoami`/.bashrc" >> backup.sh;
 answer="y";
 user_num=0;
 while [ $answer = "y" ]
@@ -49,4 +51,5 @@ echo -e "\t\tssh -t "$shutdown_user"@"$static_ip" 'sudo shutdown now';" >> backu
 echo "fi" >> backup.sh;
 echo "Make script executable";
 chmod +x ./backup.sh;
-echo "Now the backup script needs to be set to run at midnight through cron"
+echo "Now the backup script needs to be set to run at midnight through cron";
+echo "Thanks!";
