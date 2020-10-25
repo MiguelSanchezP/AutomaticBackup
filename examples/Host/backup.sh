@@ -1,4 +1,5 @@
 #!/bin/bash
+. /home/user/.bashrc;
 if  ! ping -q -w3 -c 1 static_ip
 	then
 		ISSERVEROFF=true;
