@@ -11,7 +11,7 @@ When connecting from a machine to the server, the following commands are used:
  - `ssh`
  - `wakeonlan`
 ## Installation
-In order to make an optimal automatic backup, ssh-keys need to be defined between any two connections that are going to be done.
+In order to make an optimal automatic backup, ssh-keys need to be defined between any two connections that are going to be done and the downloaded script either `RemoteScriptGenerator.sh` or `LocalScriptGenerator.sh` has to be defined as an executable. To achieve that `chmod +x` should be run followed by the script name.
 - ### Machine to Server
 If the files are to be copied directly from a machine to a server, only the script LocalScriptGenerator.sh should be executed on the desired machine (`./LocalScriptGenerator.sh`). It will prompt the user with some questions which generate the script that's going to execute. Once the script has ended, a backup script (`backup.sh`) is going to be executed everytime the user turns off the computer. For periodic backups, one may want to add the generated script to cron.
 - ### Machine to Access Point to Server
