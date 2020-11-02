@@ -76,7 +76,9 @@ if [ $telegram = "y" ]
 		echo -e "\tfor username in usernames:" >> confirmation.py;
 		echo -e "\t\tif os.path.isfile('/home/'+username[0]+'/.Logs/.backup-successful'):" >> confirmation.py;
 		echo -e "\t\t\tfor i in range(1, len(username)):" >> confirmation.py;
-		echo -e "\t\t\t\tbot.send_message(chat_id=username[i], text='Backup successfully for username '+username[0])" >> confirmation.py;
+		echo -e "\t\t\t\tbot.send_message(chat_id=username[i], text='Backup success on username '+username[0])" >> confirmation.py;
+		echo -e "\t\telse:" >> confirmation.py;
+		echo -e "\t\t\tbot.send_message(chat_id=username[i], text='Backup failure on username '+username[0])" >> confirmation.py;
 fi
 for u in ${user[*]}
 	do
@@ -85,5 +87,6 @@ for u in ${user[*]}
 
 echo "Make script executable";
 chmod +x ./backup.sh;
-echo "Now the backup script needs to be set to run at midnight through cron";
+echo "Now the backup script needs to be set to run at midnight through cron.";
+echo "If created the python script also needs to be set up to run through cron, some time after the backup script";
 echo "Thanks!";
