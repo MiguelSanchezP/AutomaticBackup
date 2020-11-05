@@ -57,7 +57,7 @@ if [ $telegram = "y" ]
 		echo "import os.path" >> confirmation.py;
 		echo -e "import sys\n" >> confirmation.py;
 		read -p "Write here the telegram bot token: " token;
-		echo "bot = telegram.Bot("$token")" >> confirmation.py;
+		echo "bot = telegram.Bot('"$token"')" >> confirmation.py;
 		echo -e "usernames = [\c" >> confirmation.py;
 		for u in ${user[*]}
 			do
@@ -87,6 +87,8 @@ for u in ${user[*]}
 
 echo "Make script executable";
 chmod +x ./backup.sh;
-echo "Now the backup script needs to be set to run at midnight through cron.";
-echo "If created the python script also needs to be set up to run through cron, some time after the backup script";
+echo -e "\nPENDING OPERATIONS:"
+echo "· The backup script needs to be set to run at midnight through cron.";
+echo "· If created, the python script also needs to be set up to run through cron, some time after the backup script";
+echo "· Initialize the chats on the devices with the telegram bot"
 echo "Thanks!";
