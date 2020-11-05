@@ -58,18 +58,18 @@ if [ $telegram = "y" ]
 		echo -e "import sys\n" >> confirmation.py;
 		read -p "Write here the telegram bot token: " token;
 		echo "bot = telegram.Bot('"$token"')" >> confirmation.py;
-		echo -e "usernames = [\c" >> confirmation.py;
+		echo -n "usernames = [" >> confirmation.py;
 		for u in ${user[*]}
 			do
-				echo -e "['"$u"', \c" >> confirmation.py;
+				echo -n "['"$u"', " >> confirmation.py;
 				answer="y";
 				while [ $answer = "y" ]
 					do
 						read -p "Telegram ID to send notification from username "$u": " receiver;
-						echo -e "'"$receiver"', \c" >> confirmation.py;
+						echo -n "'"$receiver"', " >> confirmation.py;
 						read -p "Do you wish to add another receiver [y/n]: " answer;
 					done
-				echo -e "], \c" >> confirmation.py;
+				echo -n "], " >> confirmation.py;
 			done
 		echo "]" >> confirmation.py;
 		echo "if sys.argv[1] == 'backup':" >> confirmation.py;
