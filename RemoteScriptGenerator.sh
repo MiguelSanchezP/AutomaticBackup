@@ -91,4 +91,5 @@ echo -e "\nPENDING OPERATIONS:"
 echo "· The backup script needs to be set to run at midnight through cron.";
 echo "· If created, the python script also needs to be set up to run through cron, some time after the backup script";
 echo "· Initialize the chats on the devices with the telegram bot"
+echo "For more information look at README"
 echo "Thanks!";

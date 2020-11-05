@@ -21,4 +21,6 @@ chmod +x ./backup.sh;
 echo "Setting script to run at shutdown";
 sudo cp ./backup.sh /etc/rc6.d/K99_zzbackup;
 echo "All set up. Thanks";
-echo "Now the backup is only running on a computer shutdown, to run the script periodically add it to cron";
+echo -e "\nPENDING OPERATIONS:"
+echo "· Now the backup is only running on a computer shutdown, to run the script periodically add it to cron";
+echo "For more information look at README"
