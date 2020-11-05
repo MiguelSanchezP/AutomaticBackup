@@ -12,6 +12,7 @@ while [ $answer = "y" ]
 
 for u in ${user[*]}
 	do
+		mkdir /home/$u/.Logs;
 		echo "rm /home/"$u"/.Logs/.backup-successful" >> backup.sh;
 		echo "date >> /home/"$u"/.Logs/.backup.log;" >> backup.sh;
 	done

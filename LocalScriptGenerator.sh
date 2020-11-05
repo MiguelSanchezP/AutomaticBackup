@@ -1,6 +1,7 @@
 #!/bin/bash
 echo "Welcome to the configuration of the remote backup service!!";
 USER=`whoami`;
+mkdir /home/$USER/.Backup;
 echo "#!/bin/bash" >> backup.sh;
 echo ". /home/"$USER"/.bashrc" >> backup.sh;
 answer="y";
