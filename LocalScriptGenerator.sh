@@ -4,17 +4,18 @@ USER=`whoami`;
 mkdir /home/$USER/.Backup;
 echo "#!/bin/bash" >> backup.sh;
 echo ". /home/"$USER"/.bashrc" >> backup.sh;
+read -p "Write the remote username in where to store files: " ruser;
+read -p "Write the domain in where to copy the files: " host;
 answer="y";
 while [ $answer = "y" ]
 	do
 		read -p "Write full path of directory to be backed up: " dir;
-		echo -e "find "$dir" -newermt \`date +%F -d today\` >> /home/"$USER"/.Backup/files.txt;" >> backup.sh;
+		echo -e "find "$dir" -newermt \`ssh -t "$ruser"@"$host" cat /home/"$ruser"/.Logs/.date.txt\` >> /home/"$USER"/.Backup/files.txt;" >> backup.sh;
 		read -p "Do you wish to add anohter directory [y/n]? " answer;
 	done
 echo "sed -i -e 's/\/home\/"$USER"\///g' /home/"$USER"/.Backup/files.txt;" >> backup.sh;
-read -p "Write the ssh host in where to copy [user@host/alias]: " host;
-read -p "Write the remote username in where to store files: " ruser;
-echo "rsync -au --files-from=/home/"$USER"/.Backup/files.txt /home/"$USER"/ "$host":/home/"$ruser"/.Backup/;" >> backup.sh;
+echo "rsync -au --files-from=/home/"$USER"/.Backup/files.txt /home/"$USER"/ "$ruser"@"$host":/home/"$ruser"/.Backup/;" >> backup.sh;
+echo "ssh -t "$ruser"@"$host" 'date +%F -d today > /home/"$ruser"/.Logs/.date.txt'" >> backup.sh;
 echo "rm /home/"$USER"/.Backup/files.txt;" >> backup.sh;
 echo -e "\n";
 echo "Make script executable";
