@@ -14,7 +14,7 @@ for u in ${user[*]}
 	do
 		mkdir /home/$u/.Logs;
 		echo "2000-01-01" > /home/$u/.Logs/.date.txt;
-		echo "rm /home/"$u"/.Logs/.backup-successful" >> backup.sh;
+		echo "rm /home/"$u"/.Logs/.backup-successful;" >> backup.sh;
 		echo "date >> /home/"$u"/.Logs/.backup.log;" >> backup.sh;
 	done
 read -p "Server's static IP address: " static_ip;
@@ -30,7 +30,7 @@ for u in ${user[*]}
 	do
 		echo -e "\t\techo 'Initial server status off so turning on' >> /home/"$u"/.Logs/.backup.log;" >> backup.sh;
 	done
-read -p "Server's MAC address: " mac
+read -p "Server's MAC address: " mac;
 echo -e "\t\twakeonlan "$mac";" >> backup.sh;
 echo -e "\t\twhile ! ping -q -c 1 "$static_ip";" >> backup.sh;
 echo -e "\t\t\tdo" >> backup.sh;

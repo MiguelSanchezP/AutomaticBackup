@@ -3,7 +3,7 @@ import os.path
 import sys
 
 bot = telegram.Bot('token')
-usernames = [['user1', 'user1id', ], ['user2', 'user2id', 'user2id2', ], ]
+usernames = [['user1', 'user1id', 'user2id', ], ['user2', 'user2id', ], ]
 if sys.argv[1] == 'backup':
 	for username in usernames:
 		if os.path.isfile('/home/'+username[0]+'/.Logs/.backup-successful'):
