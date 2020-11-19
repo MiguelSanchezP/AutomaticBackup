@@ -15,7 +15,7 @@ while [ $answer = "y" ]
 	done
 echo "sed -i -e 's/\/home\/"$USER"\///g' /home/"$USER"/.Backup/files.txt;" >> backup.sh;
 echo "rsync -au --files-from=/home/"$USER"/.Backup/files.txt /home/"$USER"/ "$ruser"@"$host":/home/"$ruser"/.Backup/;" >> backup.sh;
-echo "ssh -t "$ruser"@"$host" 'date +%F -d today > /home/"$ruser"/.Logs/.date.txt'" >> backup.sh;
+echo "ssh -t "$ruser"@"$host" 'date +%F -d today > /home/"$ruser"/.Logs/.date.txt';" >> backup.sh;
 echo "rm /home/"$USER"/.Backup/files.txt;" >> backup.sh;
 echo -e "\n";
 echo "Make script executable";
