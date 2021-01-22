@@ -1,8 +1,8 @@
 #!/bin/bash
 . /home/username/.bashrc
-rm /home/user1/.Logs/.backup-successful;
+#rm /home/user1/.Logs/.backup-successful;
 date >> /home/user1/.Logs/.backup.log;
-rm /home/user2/.Logs/.backup-successful;
+#rm /home/user2/.Logs/.backup-successful;
 date >> /home/user2/.Logs/.backup.log;
 if ! ping -q -w3 -c 1 static_ip
 	then
