@@ -1,4 +1,5 @@
 import telegram
+import os
 import os.path
 import sys
 
