@@ -11,4 +11,5 @@ if sys.argv[1] == 'backup':
 			for i in range(1, len(username)):
 				bot.send_message(chat_id=username[i], text='Backup success on username '+username[0])
 		else:
-			bot.send_message(chat_id=username[i], text='Backup failure on username '+username[0])
+			for i in range(1, len(username));
+				bot.send_message(chat_id=username[i], text='Backup failure on username '+username[0])
