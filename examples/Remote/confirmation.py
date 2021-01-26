@@ -1,4 +1,5 @@
 import telegram
+import os
 import os.path
 import sys
 
@@ -9,5 +10,7 @@ if sys.argv[1] == 'backup':
 		if os.path.isfile('/home/'+username[0]+'/.Logs/.backup-successful'):
 			for i in range(1, len(username)):
 				bot.send_message(chat_id=username[i], text='Backup success on username '+username[0])
+			os.remove('/home/'+username[0]+'/.Logs/.backup-successful')
 		else:
-			bot.send_message(chat_id=username[i], text='Backup failure on username '+username[0])
+			for i in range(1, len(username));
+				bot.send_message(chat_id=username[i], text='Backup failure on username '+username[0])
