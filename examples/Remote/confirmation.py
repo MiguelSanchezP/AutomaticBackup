@@ -14,4 +14,3 @@ if sys.argv[1] == 'backup':
 		else:
 			for i in range(1, len(username));
 				bot.send_message(chat_id=username[i], text='Backup failure on username '+username[0])
-			os.remove('/home/'+username[0]+'/.Logs/.backup-successful')
