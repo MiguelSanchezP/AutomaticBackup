@@ -80,7 +80,8 @@ if [ $telegram = "y" ]
 		echo -e "\t\t\tfor i in range(1, len(username)):" >> confirmation.py;
 		echo -e "\t\t\t\tbot.send_message(chat_id=username[i], text='Backup success on username '+username[0])" >> confirmation.py;
 		echo -e "\t\telse:" >> confirmation.py;
-		echo -e "\t\t\tbot.send_message(chat_id=username[i], text='Backup failure on username '+username[0])" >> confirmation.py;
+		echo -e "\t\t\tfor i in range(1, len(username)):";
+		echo -e "\t\t\t\tbot.send_message(chat_id=username[i], text='Backup failure on username '+username[0])" >> confirmation.py;
 fi
 for u in ${user[*]}
 	do
