@@ -14,7 +14,7 @@ for u in ${user[*]}
 	do
 		mkdir /home/$u/.Logs;
 		echo "2000-01-01" > /home/$u/.Logs/.date.txt;
-		echo "rm /home/"$u"/.Logs/.backup-successful;" >> backup.sh;
+#		echo "rm /home/"$u"/.Logs/.backup-successful;" >> backup.sh;
 		echo "date >> /home/"$u"/.Logs/.backup.log;" >> backup.sh;
 	done
 read -p "Server's static IP address: " static_ip;
@@ -79,6 +79,7 @@ if [ $telegram = "y" ]
 		echo -e "\t\tif os.path.isfile('/home/'+username[0]+'/.Logs/.backup-successful'):" >> confirmation.py;
 		echo -e "\t\t\tfor i in range(1, len(username)):" >> confirmation.py;
 		echo -e "\t\t\t\tbot.send_message(chat_id=username[i], text='Backup success on username '+username[0])" >> confirmation.py;
+		echo -e "\t\t\tos.remove('/home/'+username[0]+'/.Logs/.backup-successful')";
 		echo -e "\t\telse:" >> confirmation.py;
 		echo -e "\t\t\tfor i in range(1, len(username)):";
 		echo -e "\t\t\t\tbot.send_message(chat_id=username[i], text='Backup failure on username '+username[0])" >> confirmation.py;
